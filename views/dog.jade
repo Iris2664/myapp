@@ -1,0 +1,8 @@
+extends layout
+
+block content
+    if dogImage
+      img(src=dogImage, alt='ランダムな犬の画像')
+    else
+      p 犬の画像がありませんでした。もう一度試してみてください。
+    

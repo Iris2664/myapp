@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var helloRouter = require('./routes/hello'); 
 var notesRouter = require('./routes/notes'); 
+var dogRouter = require('./routes/dog');
 
 var app = express();
 
@@ -25,6 +26,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/hello', helloRouter); 
 app.use('/notes', notesRouter); 
+app.use('/dog', dogRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -39,7 +41,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('error', { title: 'エラー', message: res.locals.message, error: res.locals.error });
 });
 
 module.exports = app;
